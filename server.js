@@ -35,5 +35,6 @@ var listener = app.listen(process.env.PORT, function () {
 var accepts = require('accepts')
 
 app.get("/api/whoami", function (req, res) {
-  res.json({"ipaddress": req.ip,"language":accepts(req).languages()});
+  res.json({"ipaddress": req.ip,"language":req.get('Accept-Language')});
 });
+  // accepts(req).languages()
