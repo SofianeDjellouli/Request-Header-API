@@ -31,6 +31,9 @@ var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
+
+var accepts = require('accepts')
+
 app.get("/api/whoami", function (req, res) {
-  res.json({"ipaddress": req.ip,"language":});
+  res.json({"ipaddress": req.ip,"language":accepts(req).languages()});
 });
